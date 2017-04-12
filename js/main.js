@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 
 var xmlhttp = new XMLHttpRequest();
-var url = "http://api.darksky.net/forecast/915927622053e6e93854ede8d5d3360a/41.8708,-87.6505";
+var url = "https://api.darksky.net/forecast/915927622053e6e93854ede8d5d3360a/41.8708,-87.6505";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {
