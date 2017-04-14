@@ -212,10 +212,7 @@ html {
 }
 
 body {
-  -webkit-font-feature-settings: "kern", "liga", "frac", "pnum";
-  -moz-font-feature-settings: "kern", "liga", "frac", "pnum";
-  -ms-font-feature-settings: "kern", "liga", "frac", "pnum";
-  font-feature-settings: "kern", "liga", "frac", "pnum";
+  
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   background-color: #22272a;

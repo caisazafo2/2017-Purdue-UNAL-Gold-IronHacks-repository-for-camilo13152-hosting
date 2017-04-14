@@ -13,7 +13,7 @@ function initMap() {
     //create the google map
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 41.8708, lng: -87.6505},
-        zoom: 13
+        zoom: 11
     });
 
 
@@ -70,6 +70,10 @@ function initMap() {
 
                 washedData.push(dataLine);
             };
+
+
+
+
             //alert(washedData);
             //number of the markets
             var numberOfMarkets = washedData.length;
@@ -91,6 +95,7 @@ function initMap() {
             var latSpan = northEast.lat() - southWest.lat();
             // adding 20 markers to the map at random locations
             var locations = [];
+
             for (var j = 0; j < numberOfMarkets; j++)
             {
                 var location = new google.maps.LatLng(
@@ -111,6 +116,11 @@ function initMap() {
                 {
                     //if the infowindow is open
                     var prev_infowindow =false;
+                    var satM = new google.maps.Marker({
+                        position: {lat: 41.8008, lng: -87.5903},
+                        map: map,
+                        icon: "./img/sat.png",
+                    })
 
                     $.each(results, function(key, value) {
 
@@ -130,7 +140,7 @@ function initMap() {
                             //set the menu information about the market
                             document.getElementById("market-name").innerHTML = "<center><b>Management Company</b>: " + washedData[key][2] + "</em>";
                             document.getElementById("street-name").innerHTML = "<center><b>Address</b>: <em>" + washedData[key][3] + "</em>";
-                            document.getElementById("website").innerHTML = "<center><b>Property type: </b>: <em><a href=\"" + washedData[key][9] + "\">" + washedData[key][9] + "</a></em>";
+                            document.getElementById("website").innerHTML = "<center><b>Property type: </b>: <em>" + washedData[key][9] + "</a></em>";
                             document.getElementById("telephone").innerHTML = "<center><b>Telephone</b>: <em> "+ washedData[key][10] + "</em>";
                             document.getElementById("building_name").innerHTML = "<center><b> Building Name </b>: <em> "+ washedData[key][11]+"</em>";
                             document.getElementById("units").innerHTML = "<center> <b> Units : </b> <em> " + washedData[key][4]+"</em>";
@@ -157,7 +167,7 @@ function initMap() {
                                 ]
                             ];
 
-                            document.getElementById("scores").innerHTML = "The final score for this market is <b><em>" + parseInt(score(array)*100) + "</b></em> out of <b><em>100</b></em>";                            
+                            //document.getElementById("scores").innerHTML = "The final score for this market is <b><em>" + parseInt(score(array)*100) + "</b></em> out of <b><em>100</b></em>";                            
 
                             //Options for the Radar chart, other than default
                             var mycfg = {
@@ -170,7 +180,7 @@ function initMap() {
 
                             //Call function to draw the Radar chart
                             //Will expect that data is in %'s
-                            RadarChart.draw("#chart", d, mycfg);
+                            //RadarChart.draw("#chart", d, mycfg);
                         });
                         
                     });
